@@ -63,7 +63,8 @@ h2:hover {
 .side_panel{
   position: fixed;
   color: #E8BF91;
-  background-color: #606C38;
+  background: rgb(96,108,56);
+background: linear-gradient(90deg, rgba(96,108,56,1) 0%, rgba(221,161,94,1) 58%, rgba(254,250,224,1) 100%);
   float: left;
   min-height: 100%;
   z-index: 1;

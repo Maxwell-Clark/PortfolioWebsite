@@ -1,34 +1,35 @@
 <template>
   <div id="app">
     <nav class="main-nav">
-      <div class="logo">my.company</div>
+      <div class="logo">my.github.com</div>
+      <!-- <img class="top_banner" src="../src/assets/tree.jpeg" alt="background"> -->
 
       <Burger></Burger>
     </nav>
 
     <body>
-      <div id="title"> 
+      <!-- <div id="title"> 
         <h2>Max Clark Development</h2>
-      </div>
+      </div> -->
           <router-view/>
     </body>
 
     <Sidebar>
       <ul class="sidebar-panel-nav">
         <li>
-          <router-link to="/">Home</router-link> 
+          <router-link class="link" to="/">Home</router-link> 
         </li>
         <li>
-          <router-link to="/skills">Skills</router-link> 
+          <router-link class="link" to="/skills">Skills</router-link> 
         </li>
         <li>
-          <router-link to="/gallery">Gallery</router-link> 
+          <router-link class="link" to="/gallery">Gallery</router-link> 
         </li>
         <li>
-          <router-link to="/projects">Projects</router-link> 
+          <router-link class="link" to="/projects">Projects</router-link> 
         </li>
         <li>
-          <router-link to="/contact">Contact</router-link> 
+          <router-link class="link" to="/contact">Contact</router-link> 
         </li>
       </ul>
     </Sidebar>
@@ -59,21 +60,34 @@ body {
   padding: 0;
   font-family: "Lato";
   height: 100%;
-  background: #FEFAE0;
+  background: #284B63;
+  color: white;
+  /* background: linear-gradient(90deg, rgba(96,108,56,1) 0%, rgba(221,161,94,1) 58%, rgba(254,250,224,1) 100%); */
   text-align: center;
 }
 
 #title {
   text-align: center;
 }
+
+.top_banner {
+  max-width: 12em;
+  max-height: 10em;
+}
+
+.link:hover {
+  color: #3C6E71;
+}
+
 .logo {
   align-self: center;
-  color: black;
+  color: #3C6E71;
   font-weight: bold;
   font-family: "Lato";
 }
 
 .main-nav {
+  background-color: #D9D9D9;
   display: flex;
   justify-content: space-between;
   padding: 0.5rem 0.8rem;
@@ -84,7 +98,7 @@ ul.sidebar-panel-nav {
 }
 
 ul.sidebar-panel-nav > li > a {
-  color: #fff;
+  color: #284B63;
   text-decoration: none;
   font-size: 1.5rem;
   display: block;

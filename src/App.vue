@@ -1,0 +1,94 @@
+<template>
+  <div id="app">
+    <nav class="main-nav">
+      <div class="logo">my.company</div>
+
+      <Burger></Burger>
+    </nav>
+
+    <body>
+      <div id="title"> 
+        <h2>Max Clark Development</h2>
+      </div>
+          <router-view/>
+    </body>
+
+    <Sidebar>
+      <ul class="sidebar-panel-nav">
+        <li>
+          <router-link to="/">Home</router-link> 
+        </li>
+        <li>
+          <router-link to="/skills">Skills</router-link> 
+        </li>
+        <li>
+          <router-link to="/gallery">Gallery</router-link> 
+        </li>
+        <li>
+          <router-link to="/projects">Projects</router-link> 
+        </li>
+        <li>
+          <router-link to="/contact">Contact</router-link> 
+        </li>
+      </ul>
+    </Sidebar>
+  </div>
+</template>
+
+<script>
+import Burger from "./components/Menu/Burger.vue";
+import Sidebar from "./components/Menu/Sidebar.vue";
+
+export default {
+  name: "app",
+  components: {
+    Burger,
+    Sidebar,
+  },
+};
+</script>
+<style>
+html {
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  border: 0;
+  margin: 0;
+  padding: 0;
+  font-family: "Lato";
+  height: 100%;
+  background: #FEFAE0;
+  text-align: center;
+}
+
+#title {
+  text-align: center;
+}
+.logo {
+  align-self: center;
+  color: black;
+  font-weight: bold;
+  font-family: "Lato";
+}
+
+.main-nav {
+  display: flex;
+  justify-content: space-between;
+  padding: 0.5rem 0.8rem;
+}
+
+ul.sidebar-panel-nav {
+  list-style-type: none;
+}
+
+ul.sidebar-panel-nav > li > a {
+  color: #fff;
+  text-decoration: none;
+  font-size: 1.5rem;
+  display: block;
+  padding-bottom: 0.5em;
+}
+</style>
+

@@ -3,8 +3,11 @@
       <h2 id="name">Max Clark</h2>
       <p id="title">Software Engineer</p>
 
+
+
       <div class="image_and_attributes">
-        <div id="attributes">
+        <div class="attributes_and_intro">
+          <div id="attributes">
             <div class="attribute">
               <h5>Driven</h5>
             </div>
@@ -14,10 +17,11 @@
             <div class="attribute">
               <h5> Passionate</h5>
             </div>
-            <div id="intro_paragraph">I am an Software Engineer!</div>
+          </div>
+          <div id="intro_paragraph">I am an Software Engineer!</div>
         </div>
 
-            <img class="image" src="../assets/zion_photo.jpg" alt="">
+        <img class="image" src="../assets/zion_photo.jpg" alt="">
       </div>
       <div class="footer">
         <p>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</p>
@@ -64,6 +68,9 @@ export default {
 
 }
 
+.attributes_and_intro {
+  display: inline;
+}
 .image_and_attributes {
   display: flex;
   flex-direction: row;
@@ -78,7 +85,7 @@ export default {
   border-width: 0px;
   border-color: transparent;
   border-style: solid;
-  border-radius: 6px;
+  border-radius: px;
 }
 
 .attribute {

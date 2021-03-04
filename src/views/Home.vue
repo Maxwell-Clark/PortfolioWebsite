@@ -5,6 +5,7 @@
 
 
 
+
       <div class="image_and_attributes">
         <div class="attributes_and_intro">
           <div id="attributes">
@@ -69,12 +70,16 @@ export default {
 </script>
 
 <style scoped>
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 #name {
   font-size: 5em;
+font-family: 'Roboto', sans-serif;
   color: white;
 }
 #title {
-  font-size: 2.5em;
+  font-size: 3em;
+font-family: 'Libre Barcode 39 Text', cursive;
   color: white;
 }
 .footer {

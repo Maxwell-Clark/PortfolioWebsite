@@ -49,6 +49,11 @@ export default {
 };
 </script>
 <style>
+@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
+
+/* body{
+    font-family:'Josefin Slab', sans-serif;
+} */
 html {
   height: 100%;
   overflow: hidden;
@@ -58,7 +63,8 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  font-family: "Lato";
+  /* font-family: "Lato"; */
+  font-family:Arial, Helvetica, sans-serif;
   height: 100%;
   background: #284B63;
   color: white;
@@ -68,6 +74,7 @@ body {
 
 #title {
   text-align: center;
+  /* font-family:'Josefin Slab', sans-serif; */
 }
 
 .top_banner {

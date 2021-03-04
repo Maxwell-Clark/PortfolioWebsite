@@ -3,21 +3,21 @@
       <h2 id="name">Max Clark</h2>
       <p id="title">Software Engineer</p>
 
+
+
       <div class="image_and_attributes">
-        <div id="attributes">
-            <div class="attribute">
-              <h5>Driven</h5>
+        <div class="attributes_and_intro">
+          <div id="attributes">
+            <div v-on:mouseover.self="changeAttribute" class="attribute">
+              <h5>{{attribute}}</h5>
             </div>
-            <div class="attribute">
-              <h5>Motivated</h5>
-            </div>
-            <div class="attribute">
-              <h5> Passionate</h5>
-            </div>
-            <div id="intro_paragraph">I am an Software Engineer!</div>
+          </div>
+          <div id="intro_paragraph">I am an Software Engineer currently pursuing bachelors degrees
+            in Computer Science and Software Development
+          </div>
         </div>
 
-            <img class="image" src="../assets/zion_photo.jpg" alt="">
+        <img class="image" src="../assets/zion_photo.jpg" alt="">
       </div>
       <div class="footer">
         <p>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</p>
@@ -35,6 +35,35 @@
 export default {
   name: 'Home',
   components: {
+  },
+  data() {
+    return{
+      attributes: ['Driven', 'Motivated', 'Passionate'],
+      attribute: ''
+    }
+  },
+  mounted(){
+    this.attribute = this.attributes[this.randomInt]
+          console.log('hello', this.randomInt)
+
+  },
+  computed: {
+    randomInt: function(){
+      return Math.floor(Math.random() * Math.floor(this.attributes.length))
+    } 
+  },
+  methods: {
+    changeAttribute(){
+      const index = this.attributes.indexOf(this.attribute)
+                  console.log(this.attributes[this.changeIndex(index)])
+      this.attribute = this.attributes[this.changeIndex(index)]
+    },
+    changeIndex(index){
+      if(index == this.attributes.length - 1){
+        return 0
+      }
+      return index + 1
+    }
   }
 }
 </script>
@@ -55,8 +84,8 @@ export default {
 }
 
 #intro_paragraph {
-  border-width: 1px;
-  border-color: transparent;
+  border-width: 2px;
+  border-color: white;
   border-style: solid;
   border-radius: 6px;
   background-color: #81929E;
@@ -64,6 +93,9 @@ export default {
 
 }
 
+.attributes_and_intro {
+  display: inline;
+}
 .image_and_attributes {
   display: flex;
   flex-direction: row;
@@ -78,7 +110,7 @@ export default {
   border-width: 0px;
   border-color: transparent;
   border-style: solid;
-  border-radius: 6px;
+  border-radius: px;
 }
 
 .attribute {
@@ -92,6 +124,23 @@ export default {
   border-color: #D9D9D9;
   border-radius: 5px;
   background-color: #81929E;
+  animation-name: attribute-out;
+  animation-duration: 1s;
+}
+
+@keyframes attribute-hover {
+  from{background-color: #81929E;}
+  to{background-color: #D9D9D9;}
+}
+@keyframes attribute-out {
+  to{background-color: #81929E;}
+  from{background-color: #D9D9D9;}
+}
+
+.attribute:hover {
+  animation-name: attribute-hover;
+  animation-duration: 1s;
+  animation-fill-mode: forwards;
 }
 
 p {

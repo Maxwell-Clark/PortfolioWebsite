@@ -1,49 +1,20 @@
 <template>
     <div class="home">
-      <!-- <h2 id="name">Max Clark</h2>
-      <div title="">
-<h2 id="name">Max Clark</h2>
-      </div> -->
-      <!-- <p id="title">Software Engineer</p> -->
       <video src="@/assets/waves.mp4" muted loop autoplay></video>
 
       <div class="name">
         <h2 id="name">Max Clark</h2>
         <p id="title">Software Engineer</p>
       </div>
-          <!-- <h2 id="name">Max Clark</h2> -->
-              <!-- <div class="overlay"></div> -->
-
-
-
-      <!-- <div class="image_and_attributes">
-        <div class="attributes_and_intro">
-          <div id="attributes">
-            <div v-on:mouseover.self="changeAttribute" class="attribute">
-              <h5>{{attribute}}</h5>
-            </div>
-          </div>
-          <div id="intro_paragraph">I am an Software Engineer currently pursuing bachelors degrees
-            in Computer Science and Software Development
-          </div>
-        </div> -->
-
-        <!-- <img class="image" src="../assets/zion_photo.jpg" alt=""> -->
-      <!-- </div> -->
 
       <div class="footer">
         <p>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</p>
       </div>
-
-      <!-- <p></p>
-      <p>I am interested in working in the machine learning field</p> -->
     
     </div>
 </template>
 
 <script>
-// @ is an alias to /src
-// import SidePanel from '@/components/SidePanel.vue'
 
 export default {
   name: 'Home',
@@ -88,17 +59,20 @@ export default {
   font-size: 4.5em;
   font-family: 'Roboto', sans-serif;
   z-index: 10; 
-  /* need to work on positioning the home page text. */
-  /* max-width: 1rem; */
+  max-width: 4em;
   color: white;
+
+}
+h2 {
+  margin: 0px;
 }
 #title {
   font-size: 3em;
   font-family: 'Libre Barcode 39 Text', cursive;
   color: white;
-  margin: auto;
   z-index: 10;
-  /* max-width: 1rem; */
+  max-width: 5em;
+  align-items: center;
   display:flex;
   justify-content: center;
 }
@@ -109,13 +83,18 @@ export default {
   color: white;
   margin: auto;
   display:flex;
-  justify-content: center;
+  align-items: center;
+  justify-content: space-evenly;
+  position: absolute;
+  top: 25%;
+  width: 100%;
 }
 
 .footer {
   position: absolute;
   width: 100%;
   bottom: 10px;
+  font-family: 'Roboto', sans-serif;
 }
 
 .home video

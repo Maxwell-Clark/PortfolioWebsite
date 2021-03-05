@@ -1,16 +1,14 @@
 <template>
   <div id="app">
-    <nav class="main-nav">
-      <div class="logo">my.github.com</div>
-      <!-- <img class="top_banner" src="../src/assets/tree.jpeg" alt="background"> -->
+    <nav class="nav">
+      <div class="main-nav">
+      <a href="https://github.com/Maxwell-Clark" target="blank" class="logo">github.com/Maxwell-Clark</a>
       <Burger></Burger>
+      </div>
     </nav>
 
     <body>
-      <!-- <div id="title"> 
-        <h2>Max Clark Development</h2>
-      </div> -->
-          <router-view/>        
+      <router-view/>        
     </body>
 
     <Sidebar>
@@ -48,11 +46,7 @@ export default {
 };
 </script>
 <style>
-@import url(http://fonts.googleapis.com/css?family=Josefin+Slab);
 
-/* body{
-    font-family:'Josefin Slab', sans-serif;
-} */
 html {
   height: 100vh;
   overflow: scroll;
@@ -63,11 +57,9 @@ body {
   border: 0;
   margin: 0;
   padding: 0;
-  /* font-family: "Lato"; */
   font-family:Arial, Helvetica, sans-serif;
   background: #284B63;
   color: white;
-  /* background: linear-gradient(90deg, rgba(96,108,56,1) 0%, rgba(221,161,94,1) 58%, rgba(254,250,224,1) 100%); */
   text-align: center;
 }
 
@@ -78,7 +70,6 @@ body.modal-open {
 
 #title {
   text-align: center;
-  /* font-family:'Josefin Slab', sans-serif; */
 }
 
 .top_banner {
@@ -92,18 +83,24 @@ body.modal-open {
 
 .logo {
   align-self: center;
+  text-decoration: none;
   color: #3C6E71;
   font-weight: bold;
   font-family: "Lato";
 }
 
 .main-nav {
-  background-color: #D9D9D9;
+  background-color: #fff;
   display: flex;
   justify-content: space-between;
   z-index: 10;
   padding: 0.5rem 0.8rem;
+  width: 100%;
 }
+.nav {
+  display: flex;
+}
+
 
 ul.sidebar-panel-nav {
   list-style-type: none;

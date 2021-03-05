@@ -3,7 +3,6 @@
     <nav class="main-nav">
       <div class="logo">my.github.com</div>
       <!-- <img class="top_banner" src="../src/assets/tree.jpeg" alt="background"> -->
-
       <Burger></Burger>
     </nav>
 
@@ -11,7 +10,7 @@
       <!-- <div id="title"> 
         <h2>Max Clark Development</h2>
       </div> -->
-          <router-view/>
+          <router-view/>        
     </body>
 
     <Sidebar>
@@ -55,8 +54,9 @@ export default {
     font-family:'Josefin Slab', sans-serif;
 } */
 html {
-  height: 100%;
-  overflow: hidden;
+  height: 100vh;
+  overflow: scroll;
+  overflow-x: hidden;
 }
 
 body {
@@ -65,11 +65,15 @@ body {
   padding: 0;
   /* font-family: "Lato"; */
   font-family:Arial, Helvetica, sans-serif;
-  height: 100%;
   background: #284B63;
   color: white;
   /* background: linear-gradient(90deg, rgba(96,108,56,1) 0%, rgba(221,161,94,1) 58%, rgba(254,250,224,1) 100%); */
   text-align: center;
+}
+
+body.modal-open {
+  overflow: hidden;
+  height: 100vh;
 }
 
 #title {
@@ -97,6 +101,7 @@ body {
   background-color: #D9D9D9;
   display: flex;
   justify-content: space-between;
+  z-index: 10;
   padding: 0.5rem 0.8rem;
 }
 

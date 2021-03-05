@@ -1,12 +1,22 @@
 <template>
     <div class="home">
-      <h2 id="name">Max Clark</h2>
-      <p id="title">Software Engineer</p>
+      <!-- <h2 id="name">Max Clark</h2>
+      <div title="">
+<h2 id="name">Max Clark</h2>
+      </div> -->
+      <!-- <p id="title">Software Engineer</p> -->
+      <video src="@/assets/waves.mp4" muted loop autoplay></video>
+
+      <div class="name">
+        <h2 id="name">Max Clark</h2>
+        <p id="title">Software Engineer</p>
+      </div>
+          <!-- <h2 id="name">Max Clark</h2> -->
+              <!-- <div class="overlay"></div> -->
 
 
 
-
-      <div class="image_and_attributes">
+      <!-- <div class="image_and_attributes">
         <div class="attributes_and_intro">
           <div id="attributes">
             <div v-on:mouseover.self="changeAttribute" class="attribute">
@@ -16,16 +26,18 @@
           <div id="intro_paragraph">I am an Software Engineer currently pursuing bachelors degrees
             in Computer Science and Software Development
           </div>
-        </div>
+        </div> -->
 
-        <img class="image" src="../assets/zion_photo.jpg" alt="">
-      </div>
+        <!-- <img class="image" src="../assets/zion_photo.jpg" alt=""> -->
+      <!-- </div> -->
+
       <div class="footer">
         <p>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</p>
       </div>
 
       <!-- <p></p>
       <p>I am interested in working in the machine learning field</p> -->
+    
     </div>
 </template>
 
@@ -68,24 +80,64 @@ export default {
   }
 }
 </script>
-
+//Video by Tom Fisk from Pexels
 <style scoped>
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 #name {
-  font-size: 5em;
-font-family: 'Roboto', sans-serif;
+  font-size: 4.5em;
+  font-family: 'Roboto', sans-serif;
+  z-index: 10; 
+  /* need to work on positioning the home page text. */
+  /* max-width: 1rem; */
   color: white;
 }
 #title {
   font-size: 3em;
-font-family: 'Libre Barcode 39 Text', cursive;
+  font-family: 'Libre Barcode 39 Text', cursive;
   color: white;
+  margin: auto;
+  z-index: 10;
+  /* max-width: 1rem; */
+  display:flex;
+  justify-content: center;
 }
+
+.name {
+  font-size: 3em;
+  font-family: 'Libre Barcode 39 Text', cursive;
+  color: white;
+  margin: auto;
+  display:flex;
+  justify-content: center;
+}
+
 .footer {
   position: absolute;
   width: 100%;
   bottom: 10px;
+}
+
+.home video
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
+  object-fit: cover;
+  opacity: 0.3;
+}
+.overlay
+{
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: #81929E;
+  mix-blend-mode: overlay;
 }
 
 #intro_paragraph {
@@ -159,6 +211,8 @@ p {
   padding: 10px;
 }
 .home {
+z-index: 2;
+overflow-x: hidden;
 align-self: center;
 }
 </style>

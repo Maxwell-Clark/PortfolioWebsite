@@ -97,7 +97,7 @@ button:focus {
 }
 
 #burger.active .burger-bar {
-  background-color: white;
+  background-color: #3C6E71;
 }
 
 #burger.active .burger-bar--1 {

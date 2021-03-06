@@ -1,40 +1,56 @@
 <template>
     <div>
-        <!-- <SidePanel /> -->
         <h2>Skills</h2>
-        <!-- <p>I am fluent in html, javascript, and css</p>
-        <p>I have used Mongodb and Sql Data bases</p>
-        <p>I have used Expressjs</p>
-        <p>vuejs, google maps api, turfjs, rest apis, azure services, azure devops</p>
-        <p>git, typescript</p> -->
-
-        <div class="scroll_menu">
-            <div class="menu">
-                <div class="skills">
-                    <label class="skill" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
+        <div id="logo">
+            <img src="" alt="">
+        </div>
+        <div class="body">
+            <div>
+                <h3 class="list_headers">My Experiance</h3>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <div>
+                <h3 class="list_headers">Key Accomplishments</h3>
+                <ul>
+                    <li></li>
+                </ul>
+            </div>
+            <div class="scroll_menu">
+                <div class="menu">
+                    <div class="skills">
+                        <label class="skill" @click="showSkillInfo" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
+                    </div>
                 </div>
             </div>
         </div>
     </div>
 </template>
 
-// <script>
-// import SidePanel from '@/components/SidePanel.vue'
+<script>
 
 export default {
-data() {
-    return {
-        skills: ['JavaScript ', 
-            'HTML5', 'CSS', 'Vue', 'Unit Testing', 
-            'Git', 'Python', 'Java', 'Golang', 'TensorFlow',
-            'Http', 'Turf.js', 'Azure Services', 'Azure Devops',
-            'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills']
+    data() {
+        return {
+            skills: ['JavaScript ', 
+                'HTML5', 'CSS', 'Vue', 'Unit Testing', 
+                'Git', 'REST APIs', 'Python', 'Java', 'Golang', 'TensorFlow',
+                'Http', 'Turf.js', 'Azure Services', 'Azure Devops',
+                'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills'],
+            activeSkill: null
+        }
+    },
+    name: 'Skills',
+    mounted() {
+        this.activeSkill = this.skills[0]
+    },
+    methods: {
+        showSkillInfo(newSkill) {
+            this.activeSkill = newSkill
+        }
     }
-},
-name: 'Skills',
-components: {
-    // SidePanel
-    }
+
 }
 
 </script>
@@ -43,25 +59,50 @@ components: {
 
 h2 {
     font-family: 'Libre Barcode 39 Text', cursive;
+    font-size: 5em;
+    margin: auto;
+    margin-top: 50px;
+    margin-bottom: 20px;
+}
+
+.list_headers {
+    margin: 0px;
+    font-family: 'Inconsolata', monospace;
+    font-size: 2em;
+}
+
+
+#logo {
+    width: 150px;
+    height: 150px;
+    position: relative;
+    border-radius: 50%;
+    margin: auto;
+    background-color: white;
+}
+
+.body {
+    display: flex;
+    justify-content: space-evenly;
+    width: 100%;
+    margin-top: 20px;
 }
 
 .scroll_menu {
-    height: 45em;
+    height: 43.5em;
     width: 16em;
     border-radius: 6px;
     float: right;
-    margin-right: 15%;
     background-color: white;
 }
 
 .menu {
     margin: 1em;
-    height: 42em;
+    height: 41em;
     border-width: 4px;
     border-color: #284B63;
     border-radius: 6px;
     border-style: solid;
-    /* overflow: scroll; */
 }
 
 .skills {
@@ -72,9 +113,12 @@ h2 {
 }
 
 .skill {
-    padding: 5px;
-    color: black;
-    font-family: 'Roboto', sans-serif;
+    padding: 6px;
+    color: #284B63;
+    background: #D9D9D9;
+    font-family: 'Inconsolata', monospace;
+    margin: 2px;
+    border-radius: 6px;
 }
 
 </style>>

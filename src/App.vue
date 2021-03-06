@@ -42,10 +42,12 @@ export default {
   components: {
     Burger,
     Sidebar,
-  },
+  }
 };
 </script>
 <style>
+@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
 
 html {
   height: 100vh;

@@ -53,8 +53,8 @@ export default {
 </script>
 //Video by Tom Fisk from Pexels
 <style scoped>
-@import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
 #name {
   font-size: 4.5em;
   font-family: 'Roboto', sans-serif;

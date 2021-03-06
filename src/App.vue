@@ -20,7 +20,7 @@
           <router-link class="link" to="/skills">Skills</router-link> 
         </li>
         <li>
-          <router-link class="link" to="/gallery">Gallery</router-link> 
+          <router-link class="link" to="/gallery">About</router-link> 
         </li>
         <li>
           <router-link class="link" to="/projects">Projects</router-link> 
@@ -47,11 +47,12 @@ export default {
 </script>
 <style>
 @import url('https://fonts.googleapis.com/css2?family=DotGothic16&family=Libre+Barcode+39+Text&family=Source+Code+Pro:wght@200;400&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Inconsolata:wght@700&display=swap');
+/* @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap'); */
 
 html {
   height: 100vh;
-  overflow: scroll;
   overflow-x: hidden;
 }
 
@@ -111,6 +112,7 @@ ul.sidebar-panel-nav {
 ul.sidebar-panel-nav > li > a {
   color: #284B63;
   text-decoration: none;
+  font-family: 'Inconsolata', monospace;
   font-size: 1.5rem;
   display: block;
   padding-bottom: 0.5em;

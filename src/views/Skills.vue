@@ -8,19 +8,20 @@
             <div>
                 <h3 class="list_headers">My Experiance</h3>
                 <ul>
-                    <li></li>
+                    <li v-for="ex in activeSkillInfo.experiance" :key="ex">{{ex}}</li>
                 </ul>
             </div>
             <div>
                 <h3 class="list_headers">Key Accomplishments</h3>
                 <ul>
-                    <li></li>
+                    <li v-for="a in activeSkillInfo.accomplishments" :key="a">{{a}}</li>
                 </ul>
             </div>
             <div class="scroll_menu">
                 <div class="menu">
                     <div class="skills">
-                        <label class="skill" @click="showSkillInfo" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
+
+                        <label class="skill" @click="changeActiveSkill()" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
                     </div>
                 </div>
             </div>
@@ -29,6 +30,7 @@
 </template>
 
 <script>
+import returnSkillInfo from './../SkillsInfo'
 
 export default {
     data() {
@@ -38,17 +40,25 @@ export default {
                 'Git', 'REST APIs', 'Python', 'Java', 'Golang', 'TensorFlow',
                 'Http', 'Turf.js', 'Azure Services', 'Azure Devops',
                 'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills'],
-            activeSkill: null
+            activeSkill: null,
+            activeSkillInfo: null
         }
     },
     name: 'Skills',
     mounted() {
         this.activeSkill = this.skills[0]
+        this.changeActiveSkill(this.skills[0])
+        console.log(this.activeSkill, this.activeSkillInfo)
+    },
+    watch: {
+        activeSkill: 'changeActiveSkill'
     },
     methods: {
-        showSkillInfo(newSkill) {
+        changeActiveSkill(newSkill) {
             this.activeSkill = newSkill
-        }
+            this.activeSkillInfo = returnSkillInfo(newSkill)
+            console.log(newSkill, this.activeSkillInfo)
+        },
     }
 
 }
@@ -119,6 +129,11 @@ h2 {
     font-family: 'Inconsolata', monospace;
     margin: 2px;
     border-radius: 6px;
+}
+
+.skill:hover {
+    color: #D9D9D9;
+    background: #284B63;
 }
 
 </style>>

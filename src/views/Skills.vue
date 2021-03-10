@@ -1,26 +1,26 @@
 <template>
     <div>
         <h2>Skills</h2>
-        <div id="logo">
-            <img src="" alt="">
+        <div class="skill_title">
+            <label v-if="activeSkillInfo">{{activeSkillInfo.name}}</label>
         </div>
         <div class="body">
             <div>
                 <h3 class="list_headers">My Experiance</h3>
-                <ul>
-                    <li></li>
+                <ul v-if="activeSkillInfo">
+                    <li v-for="ex in activeSkillInfo.experiance" :key="ex">{{ex}}</li>
                 </ul>
             </div>
             <div>
                 <h3 class="list_headers">Key Accomplishments</h3>
-                <ul>
-                    <li></li>
+                <ul  v-if="activeSkillInfo">
+                    <li v-for="a in activeSkillInfo.accomplishments" :key="a">{{a}}</li>
                 </ul>
             </div>
             <div class="scroll_menu">
                 <div class="menu">
                     <div class="skills">
-                        <label class="skill" @click="showSkillInfo" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
+                        <label class="skill" @click="changeActiveSkill(skill)" v-for="skill in skills" :key="skill" for="">{{skill}}</label>
                     </div>
                 </div>
             </div>
@@ -29,26 +29,33 @@
 </template>
 
 <script>
+import { returnSkillInfo } from './../SkillsInfo'
 
 export default {
     data() {
         return {
-            skills: ['JavaScript ', 
+            skills: ['JavaScript', 
                 'HTML5', 'CSS', 'Vue', 'Unit Testing', 
                 'Git', 'REST APIs', 'Python', 'Java', 'Golang', 'TensorFlow',
                 'Http', 'Turf.js', 'Azure Services', 'Azure Devops',
                 'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills'],
-            activeSkill: null
+            activeSkill: null,
+            activeSkillInfo: null
         }
     },
     name: 'Skills',
     mounted() {
         this.activeSkill = this.skills[0]
+        this.changeActiveSkill(this.skills[0])
+    },
+    watch: {
+        activeSkill: 'changeActiveSkill'
     },
     methods: {
-        showSkillInfo(newSkill) {
+        changeActiveSkill(newSkill) {
             this.activeSkill = newSkill
-        }
+            this.activeSkillInfo = returnSkillInfo(newSkill)
+        },
     }
 
 }
@@ -105,6 +112,12 @@ h2 {
     border-style: solid;
 }
 
+.skill_title {
+    font-family: 'Inconsolata', monospace;
+    color: #fff;
+    font-size: 4em;
+}
+
 .skills {
     padding: 5px;
     color: black;
@@ -119,6 +132,23 @@ h2 {
     font-family: 'Inconsolata', monospace;
     margin: 2px;
     border-radius: 6px;
+}
+
+.skill:hover {
+    color: #fff;
+    background: #284B63;
+    animation-name: skillHover;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+}
+
+@keyframes skillHover {
+    from{
+        border-radius: 6px;
+    }    
+    to{
+        border-radius: 1px;
+    }
 }
 
 </style>>

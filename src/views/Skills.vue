@@ -1,8 +1,8 @@
 <template>
     <div>
         <h2>Skills</h2>
-        <div id="logo">
-            <label>{{activeSkill.name}}</label>
+        <div class="skill_title">
+            <label v-if="activeSkillInfo">{{activeSkillInfo.name}}</label>
         </div>
         <div class="body">
             <div>
@@ -110,6 +110,12 @@ h2 {
     border-color: #284B63;
     border-radius: 6px;
     border-style: solid;
+}
+
+.skill_title {
+    font-family: 'Inconsolata', monospace;
+    color: #fff;
+    font-size: 4em;
 }
 
 .skills {

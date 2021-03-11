@@ -1,7 +1,7 @@
 <template>
   <div>
       <!-- <SidePanel /> -->
-      <h2>This is for my Gallery</h2>
+      <h2>About</h2>
   </div>
 </template>
 
@@ -9,7 +9,7 @@
 // import SidePanel from '@/components/SidePanel.vue'
 
 export default {
-  name: 'Gallery',
+  name: 'About',
   components: {
     // SidePanel
   }

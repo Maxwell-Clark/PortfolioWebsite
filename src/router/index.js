@@ -2,7 +2,7 @@ import Vue from 'vue'
 import VueRouter from 'vue-router'
 import Home from '../views/Home.vue'
 import Skills from '../views/Skills.vue'
-import Gallery from '../views/Gallery.vue'
+import About from '../views/About.vue'
 import Projects from '../views/Projects.vue'
 import Contact from '../views/Contact.vue'
 
@@ -21,9 +21,9 @@ const routes = [
     component: Skills
   },
   {
-    path: '/gallery',
-    name: 'Gallery',
-    component: Gallery
+    path: '/aboutme',
+    name: 'About Me',
+    component: About
   },
   {
     path: '/projects',

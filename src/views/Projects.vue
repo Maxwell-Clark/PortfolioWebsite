@@ -7,6 +7,7 @@
 
 <script>
 // import SidePanel from '@/components/SidePanel.vue'
+//just need to set up the slide show with an template for links
 
 export default {
   name: 'Projects',

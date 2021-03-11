@@ -7,6 +7,7 @@
 
 <script>
 // import SidePanel from '@/components/SidePanel.vue'
+//research how to set up an contact page
 
 export default {
   name: 'Contact',

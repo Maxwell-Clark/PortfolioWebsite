@@ -20,7 +20,7 @@
           <router-link class="link" to="/skills">Skills</router-link> 
         </li>
         <li>
-          <router-link class="link" to="/gallery">About</router-link> 
+          <router-link class="link" to="/aboutme">About Me</router-link> 
         </li>
         <li>
           <router-link class="link" to="/projects">Projects</router-link> 

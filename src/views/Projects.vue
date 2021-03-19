@@ -1,6 +1,6 @@
 <template>
   <div>
-      <!-- <SidePanel /> -->
+    <h2 class="title">Projects</h2>
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -26,25 +26,19 @@
       </div>
     </div>
     <div class="buttons">
-      <button id="prev" @click="prev"><i class="fas fa-arrow-left"></i></button>
-      <button id="next" @click="next"><i class="fas fa-arrow-right"></i></button>
+      <button id="prev" @click="prevSlide"><i class="fas fa-arrow-left"></i></button>
+      <button id="next" @click="nextSlide"><i class="fas fa-arrow-right"></i></button>
     </div>
   </body>
   </div>
 </template>
 
 <script>
-// import SidePanel from '@/components/SidePanel.vue'
-// import { Splide, SplideSlide } from '@splidejs/vue-splide';
-//just need to set up the slide show with an template for links
 
 export default {
   name: 'Projects',
   data() {
     return{
-      auto: false,
-      intervalTime: 5000,
-      slideInterval: null,
       captions: [
         {
           title: 'Project One',
@@ -63,7 +57,6 @@ export default {
           body: 'this is about the first project. describes the technology and what it does'
         }
       ],
-      // slides: this.$el.querySelectorAll('.slide'),
       images: [
         'logo.png',
         'profile_photo.jpg',
@@ -72,24 +65,12 @@ export default {
       ],
       currentImage: null,
       currentCaption: null
-      
     }
-  },
-  components: {
-    // Splide,
-    // SplideSlide,
   },
   mounted() {
     this.currentImage = this.images[0],
     this.currentCaption = this.captions[0]
 
-  },
-  watch: {
-            // Auto slide
-        // if (this.auto) {
-        //   // Run next slide at interval time
-        //   this.slideInterval = setInterval(this.nextSlide, this.intervalTime);
-        // }
   },
   computed: {
     currentIndex: function() {
@@ -113,59 +94,16 @@ export default {
       if(this.currentImage == null) {
         return
       }
-      // var images = require.context('../assets/', false, /\.png$/)
       return require('@/assets/' + this.currentImage )
     },
     prevSlide(){
-      // Get current class
-      // const current = this.$el.querySelector('.current');
-      console.log(this.currentIndex)
       this.currentImage = this.images[this.prevIndex]
       this.currentCaption = this.captions[this.currentIndex]
-      // Remove current class
-      // current.classList.remove('current');
-      // // Check for prev slide
-      // if (current.previousElementSibling) {
-      //   // Add current to prev sibling
-      //   current.previousElementSibling.classList.add('current');
-      // } else {
-      //   // Add current to last
-      //   this.slides[this.slides.length - 1].classList.add('current');
-      // }
-      // setTimeout(() => current.classList.remove('current'));
+
     },
     nextSlide() {
       this.currentImage = this.images[this.nextIndex]
       this.currentCaption = this.captions[this.currentIndex]
-      
-
-      // Get current class
-      // const current = document.querySelector('.current');
-      // // Remove current class
-      // current.classList.remove('current');
-      // // Check for next slide
-      // if (current.nextElementSibling) {
-      //   // Add current to next sibling
-      //   current.nextElementSibling.classList.add('current');
-      // } else {
-      //   // Add current to start
-      //   this.slides[0].classList.add('current');
-      // }
-      // setTimeout(() => current.classList.remove('current'));
-    },
-    next(){
-      this.nextSlide();
-      if (this.auto) {
-        clearInterval(this.slideInterval);
-        this.slideInterval = setInterval(this.nextSlide, this.intervalTime);
-      }
-    },
-    prev(){
-      this.prevSlide();
-      if (this.auto) {
-        clearInterval(this.slideInterval);
-        this.slideInterval = setInterval(this.nextSlide, this.intervalTime);
-      }
     }
   }
 
@@ -195,8 +133,15 @@ body {
   width: 100vw;
 }
 
+.title {
+  font-family: 'Libre Barcode 39 Text', cursive;
+  color: #fff;
+  font-size: 5em;
+  margin: 15px;
+}
+
 .current_image {
-  justify-self: center;
+/* need to add some css here */
 }
 
 .slide {

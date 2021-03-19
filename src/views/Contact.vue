@@ -6,24 +6,22 @@
       <hr>
 
     <div class="container">
-      <form class="contact_form" action="action_page.php">
+      <form class="contact_form" @submit.prevent="sendEmail">
 
-        <input type="text" id="fname" name="firstname" required placeholder="Your name..">
+        <input type="text" name="user_name" v-model="senderName" required placeholder="Your name..">
 
-        <input type="email" id="lname" name="lastname" required placeholder="Your email..">
+        <input type="email" name="user_email" v-model="senderEmail" required placeholder="Your email..">
 
-        <textarea id="subject" name="subject" required placeholder="Whats Up :)" style="height:200px"></textarea>
+        <textarea id="subject" name="message" required v-model="emailBody" placeholder="Whats Up :)" style="height:200px"></textarea>
 
-        <input type="submit" value="Submit">
+        <input type="submit" value="Send">
 
       </form>
 
       <div id="metadata">
-        <label >location</label>
-        <label >location</label>
-        <label >location</label>
-        <label >location</label>
-
+        <label ><font-awesome-icon icon="map-marker-alt" /> Little Rock, AR</label>
+        <label ><font-awesome-icon icon="phone-alt" /> (801) 471-6412</label>
+        <label ><font-awesome-icon icon="envelope" /> maxwell6636@gmail.com</label>
       </div>
 
     </div>
@@ -37,8 +35,8 @@ export default {
   name: 'Contact',
   data() {
     return{
+      senderName: null,
       senderEmail: null,
-      emailSubject: null,
       emailBody: null
     }
   },
@@ -47,12 +45,21 @@ export default {
   },
   methods: {
     sendEmail: (e) => {
-      emailjs.sendForm('SERVICE_ID', 'TEMPLATE_ID', e.target, 'USER_ID')
+      console.log(e.target)
+      // const form = {
+      //   user_name: this.senderName,
+      //   user_email: this.senderEmail,
+      //   message: this.emailBody
+      // }
+      emailjs.sendForm('service_nnbnq86', 'template_dnnxxrr', e.target, 'user_mDRW3ioxPxu4Y62CUx5Fz')
         .then((result) => {
             console.log('SUCCESS!', result.status, result.text);
         }, (error) => {
             console.log('FAILED...', error);
         });
+    },
+    console(){
+      console.log(this.senderEmail, this.emailBody)
     }
   }
 

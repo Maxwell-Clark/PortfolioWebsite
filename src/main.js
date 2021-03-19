@@ -3,6 +3,23 @@ import App from './App.vue'
 import router from './router'
 import store from "./store"
 
+import { library } from '@fortawesome/fontawesome-svg-core'
+import { faUserSecret, faMapMarkerAlt, faPhoneAlt, faEnvelope } from '@fortawesome/free-solid-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/vue-fontawesome'
+
+// import VueSplide from '@splidejs/vue-splide';
+
+
+library.add(
+  faUserSecret,
+  faMapMarkerAlt,
+  faPhoneAlt,
+  faEnvelope)
+  // <i class="fas fa-map-marker-alt"></i>
+
+Vue.component('font-awesome-icon', FontAwesomeIcon)
+
+// Vue.use(VueSplide)
 // const express = require('express')
 // const app = express()
 // const port = 3000

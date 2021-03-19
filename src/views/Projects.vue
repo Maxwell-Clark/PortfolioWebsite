@@ -5,7 +5,6 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Full Screen Slider</title>
     <link
       rel="stylesheet"
       href="https://use.fontawesome.com/releases/v5.7.2/css/all.css"
@@ -16,60 +15,14 @@
   </head>
   <body>
     <div class="slider">
-      <div class="slide current"> 
-        <!-- need to v-for off the slide current div and use the index of the images -->
-        <!-- <div class="content">
-          <h1>Slide One</h1>
+      <div v-for="image in images" class="slide current" :key="image"> 
+        <img class="current_image" :src="getImg()" /> 
+        <div class="content">
+          <h1>{{currentCaption.title}}</h1>
           <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
+            {{currentCaption.body}}
           </p>
         </div>
-      </div>
-      <div class="slide">
-        <div class="content">
-          <h1>Slide Two</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="content">
-          <h1>Slide Three</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="content">
-          <h1>Slide Four</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="content">
-          <h1>Slide Five</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
-          </p>
-        </div>
-      </div>
-      <div class="slide">
-        <div class="content">
-          <h1>Slide Six</h1>
-          <p>
-            Lorem ipsum, dolor sit amet consectetur adipisicing elit. Sit hic
-            maxime, voluptatibus labore doloremque vero!
-          </p>
-        </div> -->
       </div>
     </div>
     <div class="buttons">
@@ -92,6 +45,24 @@ export default {
       auto: false,
       intervalTime: 5000,
       slideInterval: null,
+      captions: [
+        {
+          title: 'Project One',
+          body: 'this is about the first project. describes the technology and what it does'
+        },
+        {
+          title: 'Project Two',
+          body: 'this is about the first project. describes the technology and what it does'
+        },
+        {
+          title: 'Project Three',
+          body: 'this is about the first project. describes the technology and what it does'
+        },
+        {
+          title: 'Project Four',
+          body: 'this is about the first project. describes the technology and what it does'
+        }
+      ],
       // slides: this.$el.querySelectorAll('.slide'),
       images: [
         'logo.png',
@@ -99,7 +70,8 @@ export default {
         'tree.jpeg',
         'zion_photo.jpg'
       ],
-      currentImage: null
+      currentImage: null,
+      currentCaption: null
       
     }
   },
@@ -108,7 +80,8 @@ export default {
     // SplideSlide,
   },
   mounted() {
-    this.currentImage = this.images[0]
+    this.currentImage = this.images[0],
+    this.currentCaption = this.captions[0]
 
   },
   watch: {
@@ -119,65 +92,68 @@ export default {
         // }
   },
   computed: {
-    currentImageIndex: function() {
+    currentIndex: function() {
       return this.images.indexOf(this.currentImage)
     },
-    prevImageIndex: function() {      
-      if((this.currentImageIndex - 1) < 0) {
+    prevIndex: function() {      
+      if((this.currentIndex - 1) < 0) {
         return this.images.length - 1
       }
-      return this.currentImageIndex - 1
+      return this.currentIndex - 1
     },
-    nextImageIndex: function() {
-      if((this.currentImageIndex + 1) >= this.images.length) {
+    nextIndex: function() {
+      if((this.currentIndex + 1) >= this.images.length) {
         return 0
       } 
-      return this.currentImageIndex + 1
+      return this.currentIndex + 1
     }
   },
   methods: {
     getImg() {
+      if(this.currentImage == null) {
+        return
+      }
       // var images = require.context('../assets/', false, /\.png$/)
-      // return images('./' + pet + ".png")
+      return require('@/assets/' + this.currentImage )
     },
     prevSlide(){
       // Get current class
-      const current = this.$el.querySelector('.current');
-      this.currentImage = this.images[this.prevImageIndex]
+      // const current = this.$el.querySelector('.current');
+      console.log(this.currentIndex)
+      this.currentImage = this.images[this.prevIndex]
+      this.currentCaption = this.captions[this.currentIndex]
       // Remove current class
-      current.classList.remove('current');
-      // Check for prev slide
-      if (current.previousElementSibling) {
-        // Add current to prev sibling
-        current.previousElementSibling.classList.add('current');
-      } else {
-        // Add current to last
-        this.slides[this.slides.length - 1].classList.add('current');
-      }
-      setTimeout(() => current.classList.remove('current'));
+      // current.classList.remove('current');
+      // // Check for prev slide
+      // if (current.previousElementSibling) {
+      //   // Add current to prev sibling
+      //   current.previousElementSibling.classList.add('current');
+      // } else {
+      //   // Add current to last
+      //   this.slides[this.slides.length - 1].classList.add('current');
+      // }
+      // setTimeout(() => current.classList.remove('current'));
     },
     nextSlide() {
-      this.currentImage = this.images[this.nextImageIndex]
+      this.currentImage = this.images[this.nextIndex]
+      this.currentCaption = this.captions[this.currentIndex]
       
 
-      console.log(this.currentImageIndex)
       // Get current class
-      const current = document.querySelector('.current');
-      // Remove current class
-      current.classList.remove('current');
-      // Check for next slide
-      if (current.nextElementSibling) {
-        // Add current to next sibling
-        current.nextElementSibling.classList.add('current');
-      } else {
-        // Add current to start
-        this.slides[0].classList.add('current');
-      }
-      setTimeout(() => current.classList.remove('current'));
+      // const current = document.querySelector('.current');
+      // // Remove current class
+      // current.classList.remove('current');
+      // // Check for next slide
+      // if (current.nextElementSibling) {
+      //   // Add current to next sibling
+      //   current.nextElementSibling.classList.add('current');
+      // } else {
+      //   // Add current to start
+      //   this.slides[0].classList.add('current');
+      // }
+      // setTimeout(() => current.classList.remove('current'));
     },
     next(){
-      console.log(this.currentImageIndex)
-
       this.nextSlide();
       if (this.auto) {
         clearInterval(this.slideInterval);
@@ -185,8 +161,6 @@ export default {
       }
     },
     prev(){
-      console.log(this.currentImageIndex)
-
       this.prevSlide();
       if (this.auto) {
         clearInterval(this.slideInterval);
@@ -199,8 +173,7 @@ export default {
  
 </script>
 
-<style >
-@import url('https://fonts.googleapis.com/css?family=Roboto');
+<style scoped>
 
 * {
   box-sizing: border-box;
@@ -209,9 +182,9 @@ export default {
 }
 
 body {
-  font-family: 'Roboto', sans-serif;
-  background: #333;
-  color: #fff;
+  font-family: 'Inconsolata', monospace;
+  background: #284B63;
+  color: #D9D9D9;
   line-height: 1.6;
 }
 
@@ -220,6 +193,10 @@ body {
   overflow: hidden;
   height: 100vh;
   width: 100vw;
+}
+
+.current_image {
+  justify-self: center;
 }
 
 .slide {
@@ -232,6 +209,10 @@ body {
   transition: opacity 0.4s ease-in-out;
 }
 
+p {
+  color: #D9D9D9;
+}
+
 .slide.current {
   opacity: 1;
 }
@@ -242,8 +223,8 @@ body {
   left: -600px;
   opacity: 0;
   width: 600px;
-  background-color: rgba(255, 255, 255, 0.8);
-  color: #333;
+  background-color: #284B63;
+  color: #D9D9D9;
   padding: 35px;
 }
 
@@ -270,9 +251,9 @@ body {
 }
 
 .buttons button {
-  border: 2px solid #fff;
+  border: 2px solid #D9D9D9;
   background-color: transparent;
-  color: #fff;
+  color: #D9D9D9;
   cursor: pointer;
   padding: 13px 15px;
   border-radius: 50%;
@@ -280,8 +261,8 @@ body {
 }
 
 .buttons button:hover {
-  background-color: #fff;
-  color: #333;
+  background-color: #3C6E71;
+  color: #D9D9D9;
 }
 
 @media (max-width: 500px) {
@@ -301,27 +282,27 @@ body {
 /* Backgorund Images */
  
 .slide:first-child {
-  background: url('https://source.unsplash.com/RyRpq9SUwAU/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center top/cover;
 }
 .slide:nth-child(2) {
-  background: url('https://source.unsplash.com/BeOW_PJjA0w/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center top/cover;
 }
 .slide:nth-child(3) {
-  background: url('https://source.unsplash.com/TMOeGZw9NY4/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center top/cover;
 }
 .slide:nth-child(4) {
-  background: url('https://source.unsplash.com/yXpA_eCbtzI/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center top/cover;
 }
 .slide:nth-child(5) {
-  background: url('https://source.unsplash.com/ULmaQh9Gvbg/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center top/cover;
 } 
 .slide:nth-child(6)  {
-  background: url('https://source.unsplash.com/ggZuL3BTSJU/1600x900') no-repeat
+  background: '@/assets/logo.png' no-repeat
     center center/cover;
 }
 

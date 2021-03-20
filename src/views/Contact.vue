@@ -1,10 +1,8 @@
 <template>
   <div>
-      <!-- <SidePanel /> -->
       <h2>Contact Me</h2>
       <label id="sub_head">Lets talk! (or just say hi)</label>
       <hr>
-
     <div class="container">
       <form class="contact_form" @submit.prevent="sendEmail">
 
@@ -45,12 +43,6 @@ export default {
   },
   methods: {
     sendEmail: (e) => {
-      console.log(e.target)
-      // const form = {
-      //   user_name: this.senderName,
-      //   user_email: this.senderEmail,
-      //   message: this.emailBody
-      // }
       emailjs.sendForm('service_nnbnq86', 'template_dnnxxrr', e.target, 'user_mDRW3ioxPxu4Y62CUx5Fz')
         .then((result) => {
             console.log('SUCCESS!', result.status, result.text);

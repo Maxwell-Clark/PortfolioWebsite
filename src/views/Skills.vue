@@ -3,6 +3,7 @@
         <h2>Skills</h2>
         <div class="skill_title">
             <label v-if="activeSkillInfo">{{activeSkillInfo.name}}</label>
+            <hr>
         </div>
         <div class="body">
             <div>
@@ -35,9 +36,9 @@ export default {
     data() {
         return {
             skills: ['JavaScript', 
-                'HTML5', 'CSS', 'Vue', 'Unit Testing', 
+                'HTML5', 'CSS', 'Vue','Node', 'Unit Testing', 
                 'Git', 'REST APIs', 'Python', 'Java', 'Golang', 'TensorFlow',
-                'Http', 'Turf.js', 'Azure Services', 'Azure Devops',
+                'Http', 'Turf.js', 'Azure Services', 'Azure Devops', 'Communication',
                 'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills'],
             activeSkill: null,
             activeSkillInfo: null
@@ -90,7 +91,7 @@ h2 {
 
 .body {
     display: flex;
-    justify-content: space-evenly;
+    justify-content: space-between;
     width: 100%;
     margin-top: 20px;
 }
@@ -110,6 +111,11 @@ h2 {
     border-color: #284B63;
     border-radius: 6px;
     border-style: solid;
+    overflow-y: auto;
+}
+
+::-webkit-scrollbar {
+display: none;
 }
 
 .skill_title {

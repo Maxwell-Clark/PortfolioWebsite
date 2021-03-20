@@ -17,7 +17,7 @@
     <div class="slider">
       <div v-for="image in images" class="slide current" :key="image"> 
         <img class="current_image" :src="getImg()" /> 
-        <div class="content">
+        <div v-if="currentCaption" class="content">
           <h1>{{currentCaption.title}}</h1>
           <p>
             {{currentCaption.body}}
@@ -46,15 +46,15 @@ export default {
         },
         {
           title: 'Project Two',
-          body: 'this is about the first project. describes the technology and what it does'
+          body: 'this is about the second project. describes the technology and what it does'
         },
         {
           title: 'Project Three',
-          body: 'this is about the first project. describes the technology and what it does'
+          body: 'this is about the third project. describes the technology and what it does'
         },
         {
           title: 'Project Four',
-          body: 'this is about the first project. describes the technology and what it does'
+          body: 'this is about the fourth project. describes the technology and what it does'
         }
       ],
       images: [
@@ -141,7 +141,8 @@ body {
 }
 
 .current_image {
-/* need to add some css here */
+  position: relative;
+  top: 10%;
 }
 
 .slide {
@@ -155,7 +156,7 @@ body {
 }
 
 p {
-  color: #D9D9D9;
+  color: #284B63 !important;
 }
 
 .slide.current {
@@ -164,12 +165,12 @@ p {
 
 .slide .content {
   position: absolute;
-  bottom: 70px;
+  bottom: 200px;
   left: -600px;
   opacity: 0;
   width: 600px;
-  background-color: #284B63;
-  color: #D9D9D9;
+  background-color: #D9D9D9;
+  color: #284B63;
   padding: 35px;
 }
 

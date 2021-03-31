@@ -22,9 +22,9 @@
         <li>
           <router-link class="link" to="/aboutme">About Me</router-link> 
         </li>
-        <li>
+        <!-- <li>
           <router-link class="link" to="/projects">Projects</router-link> 
-        </li>
+        </li> -->
         <li>
           <router-link class="link" to="/contact">Contact</router-link> 
         </li>

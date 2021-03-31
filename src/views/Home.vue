@@ -8,7 +8,7 @@
       </div>
 
       <div class="footer">
-        <p>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</p>
+        <div>I am really excited about the projects I am working on! Check them out at the projects section of this site or at my github!</div>
       </div>
     
     </div>
@@ -92,7 +92,8 @@ h2 {
   position: absolute;
   width: 100%;
   bottom: 10px;
-  font-family: 'Roboto', sans-serif;
+  color: white !important;
+  font-family: 'Inconsolata', monospace;
 }
 
 .home video

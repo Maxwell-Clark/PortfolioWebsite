@@ -35,11 +35,13 @@ import { returnSkillInfo } from './../SkillsInfo'
 export default {
     data() {
         return {
-            skills: ['JavaScript', 
-                'HTML5', 'CSS', 'Vue','Node', 'Unit Testing', 
+            /*add these skills
+            'Vue','Node', 'Unit Testing', 
                 'Git', 'REST APIs', 'Python', 'Java', 'Golang', 'TensorFlow',
                 'Http', 'Turf.js', 'Azure Services', 'Azure Devops', 'Communication',
-                'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills'],
+                'Express.js', 'Mongodb', 'SQL', 'TypeScript', 'Additional Skills' */
+            skills: ['JavaScript', 
+                'HTML5', 'CSS'],
             activeSkill: null,
             activeSkillInfo: null
         }

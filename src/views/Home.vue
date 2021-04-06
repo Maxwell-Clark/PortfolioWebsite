@@ -1,6 +1,6 @@
 <template>
     <div class="home">
-      <video src="@/assets/waves.mp4" muted loop autoplay></video>
+      <video src="@/assets/Waves3.mp4" muted loop autoplay></video>
 
       <div class="name">
         <h2 id="name">Max Clark</h2>

@@ -1,4 +1,4 @@
-# portfolio
+# Max Clark's WebSite
 
 ## Project setup
 ```

@@ -8,7 +8,7 @@
           I love to be outdoors! Hiking, Biking, and Camping is where you will find me when I am not working on my next latest and greatest project. I was born in Utah but I have lived all over the country. 
           I currently live in Little Rock Arkansas with my wife Kira and my cat MoMo.
         </p>
-        <img src="../assets/profile_photo.jpg" alt="">
+        <img src="@/assets/profile_photo.jpg" alt="">
         <!-- <div id="square"></div> -->
       </div>
   </div>

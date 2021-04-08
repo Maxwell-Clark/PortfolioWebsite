@@ -1,24 +1,3 @@
 # Max Clark's WebSite
-
-## Project setup
-```
-npm install
-```
-
-### Compiles and hot-reloads for development
-```
-npm run serve
-```
-
-### Compiles and minifies for production
-```
-npm run build
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+This is my Portfolio website. It is available to view at maxwell-clark.github.io 
+It is still a work in progress and I will add to it regularly.

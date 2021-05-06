@@ -16,7 +16,7 @@
   <body>
     <div class="slider">
       <div v-for="image in images" class="slide current" :key="image"> 
-        <img class="current_image" :src="getImg()" /> 
+        <a :href="currentLink"><img class="current_image" :src="getImg()" /> </a>
         <div v-if="currentCaption" class="content">
           <h1>{{currentCaption.title}}</h1>
           <p>
@@ -41,35 +41,37 @@ export default {
     return{
       captions: [
         {
-          title: 'Project One',
-          body: 'this is about the first project. describes the technology and what it does'
+          title: 'Password Generator',
+          body: 'This Password generator was created with html, css, vue, and javascript. It allows you to create a random password, specify the length you want and copy it to your clipboard.'
         },
         {
-          title: 'Project Two',
-          body: 'this is about the second project. describes the technology and what it does'
+          title: 'Command Line Games',
+          body: 'These simple commandline games were used to learn the basics of python. they are played in the command line and include games such as two number guessing games, Mad libs, and Rock Paper Scissors.'
         },
         {
-          title: 'Project Three',
-          body: 'this is about the third project. describes the technology and what it does'
-        },
-        {
-          title: 'Project Four',
-          body: 'this is about the fourth project. describes the technology and what it does'
+          title: 'Morse Code Encoder',
+          body: 'This program is used through the command line to encode any message into Morse code. In the near future I will build on this idea to create a mobile app that you can use to share secret messages with friends!'
         }
       ],
       images: [
-        'logo.png',
-        'profile_photo.jpg',
-        'tree.jpeg',
-        'zion_photo.jpg'
+        'password_generator.png',
+        'GuessTheNumber.png',
+        'morse_code.png'
+      ],
+      links: [
+        "https://maxwell-clark.github.io/PasswordGenerator/",
+        "https://github.com/Maxwell-Clark/SimplePython",
+        "https://github.com/Maxwell-Clark/SimplePython"
       ],
       currentImage: null,
-      currentCaption: null
+      currentCaption: null,
+      currentLink: null
     }
   },
   mounted() {
     this.currentImage = this.images[0],
-    this.currentCaption = this.captions[0]
+    this.currentCaption = this.captions[0],
+    this.currentLink = this.links[0]
 
   },
   computed: {
@@ -99,11 +101,13 @@ export default {
     prevSlide(){
       this.currentImage = this.images[this.prevIndex]
       this.currentCaption = this.captions[this.currentIndex]
+      this.currentLink = this.links[this.currentIndex]
 
     },
     nextSlide() {
       this.currentImage = this.images[this.nextIndex]
       this.currentCaption = this.captions[this.currentIndex]
+      this.currentLink = this.links[this.currentIndex]
     }
   }
 

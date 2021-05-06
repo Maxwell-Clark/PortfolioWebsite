@@ -23,9 +23,9 @@
           <router-link class="link" to="/aboutme">About Me</router-link> 
         <!-- </li>  -->
         <!-- when you click a link the sidebar needs to close. set up an emit function to do so -->
-        <!-- <li>
+        <li>
           <router-link class="link" to="/projects">Projects</router-link> 
-        </li> -->
+        </li>
         <li>
           <router-link class="link" to="/contact">Contact</router-link> 
         </li>
